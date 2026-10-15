@@ -1,20 +1,26 @@
-# Lab-8.1-An-AI-Coding-Challenge
+# Flashcard Study App
 
-# Flashcard Study App – Reflection
+A responsive flashcard study app built with HTML, CSS, and vanilla JavaScript.
 
-- **Where did AI save time?** AI helped me quickly build the responsive layout, deck and card forms, and JavaScript functions instead of starting everything from scratch.
+## Run
 
-- **What AI bug did you identify, and how did you fix it?** I noticed a potential flip-state bug: a new card could still show the previous card's back. I addressed it by calling `resetFlip()` inside `render()` whenever the displayed card changes.
+Open `index.html` in a modern browser, or use VS Code Live Server. No packages are required.
 
-- **What code snippet did you refactor for clarity?** I separated the flip reset into a reusable function instead of repeating the same code:
+## Features
 
-  ```javascript
-  function resetFlip() {
-    $('studyCard').classList.remove('is-flipped');
-    $('studyCard').setAttribute('aria-pressed', 'false');
-  }
-  ```
+- Create, rename, select, and delete decks.
+- Add, edit, and delete flashcards.
+- Flip flashcards with a CSS 3D animation; navigate with Previous and Next.
+- Search front/back text and shuffle the current results.
+- Data saved automatically in browser localStorage.
+- Native accessible modal dialogs with keyboard focus handling and Escape to close.
+- Responsive sidebar layout, dark-mode preference, and visible keyboard focus styles.
 
-- **What accessibility improvement did you add?** I used a native `<dialog>` for the form, moved focus into it when opened, and returned focus to the original button when closed.
+## Testing checklist
 
-- **What prompt changes improved AI output?** I made my prompts more specific by asking for consistent HTML/CSS class names, accessible modal behavior, event delegation, and a flip-state reset when navigating cards.
+1. Create a deck, rename it, and delete it after confirmation.
+2. Add cards, flip one, navigate next, edit a card, and delete a card.
+3. Search for text in either side of a card; clear search to show all cards.
+4. Refresh and confirm changes are saved.
+5. Open a modal, use Tab and Shift+Tab to navigate, press Escape, and check focus returns to the opener.
+6. Resize to mobile width and try the app with keyboard navigation.
